@@ -17,21 +17,14 @@ use opt::Opt;
 use repo::Repo;
 use serde::Deserialize;
 use std::sync::Arc;
+use pretty_env_logger;
+use log::debug;//, info};
 
 #[tokio::main]
 async fn main() {
-    env_logger::Builder::from_env(
-        env_logger::Env::new()
-            .filter("ARENA_LOG")
-            .write_style("ARENA_LOG_STYLE"),
-    )
-    .format_timestamp(None)
-    .format_module_path(false)
-    .format_target(false)
-    .init();
-
+    pretty_env_logger::init();
     let opt = Opt::parse();
-    dbg!(&opt);
+    debug!("{:?}", opt);
 
     let repo = Arc::new(Repo::new(opt.clone()));
     // let mongo = mongo::Mongo::new(opt.clone());
