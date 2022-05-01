@@ -13,7 +13,7 @@ keywords = ["chess", "lichess"]
 
 [dependencies]
 arrayvec = { version = "0.7", features = ["serde"] }
-axum = "0.4"
+axum = "0.5"
 clap = { version = "3", features = ["derive"] }
 env_logger = "0.9"
 futures = "0.3"
