@@ -1,11 +1,11 @@
 use std::error::Error;
 
-use vergen::EmitBuilder;
+use vergen_gitcl::{Emitter, GitclBuilder};
 
 fn main() -> Result<(), Box<dyn Error>> {
-    EmitBuilder::builder()
-        .git_sha(false)
-        .git_commit_message()
+    let gitcl = GitclBuilder::default().sha(false).commit_message(true).build()?;
+    Emitter::default()
+        .add_instructions(&gitcl)?
         .emit()?;
     Ok(())
 }

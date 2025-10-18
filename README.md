@@ -1,6 +1,6 @@
 ## lila-http
 
-Take some of the HTTP load away from lila. WIP!
+Take some of the HTTP load away from lila.
 
 ### Arena tournaments
 
