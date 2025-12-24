@@ -1,0 +1,15 @@
+[Unit]
+Description=Lichess HTTP service for arena tournaments
+After=network-online.target
+
+[Container]
+Image=ghcr.io/lichess-org/lila-http:latest
+Environment=LILA_HTTP_REDIS_URL=redis://host.containers.internal
+Notify=healthy
+
+[Service]
+Sockets=lila-http.socket
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

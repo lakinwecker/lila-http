@@ -1,0 +1,8 @@
+[Unit]
+Description=Lichess HTTP socket
+
+[Socket]
+ListenStream=9001
+
+[Install]
+WantedBy=sockets.target
